@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8"></meta>
+    <title>CMUH CRS Cancer Database</title>
+    <style>
+      div{
+        line-height:25px;
+        font-size: 20px;
+      }
+      table{
+        border:3px #cccccc solid;
+      }
+      .container{
+        height:640px;
+        width:1000px;
+      }
+    </style>
+
+    <script>
+      function isHidden1(oDiv) {
+        var Names = ["div1","div2","div3","div4","div5","div6","div7","div8","div9","div10"];
+        for (var i = 0; i < 10; i++) {
+          document.getElementById(Names[i]).style.display = "none";
+        }
+        document.getElementById(oDiv).style.display = "block";
+      }
+      function changeColor(oTh){
+        var names = ["th1", "th2", "th3", "th4", "th5","th6", "th7", "th8", "th9", "th10"];
+        for (var j = 0; j < 10; j++) {
+          document.getElementById(names[j]).style.background = '#C4C4C4';
+        }
+        document.getElementById(oTh).style.background = '#808080';
+      }
+
+      function isHidden2(oDiv) {
+        var Names = ["Div1","Div2","Div3","Div4","Div5"];
+        for (var i = 0; i < 5; i++) {
+          document.getElementById(Names[i]).style.display = "none";
+        }
+        document.getElementById(oDiv).style.display = "block";
+      }
+      function changeColor2(oTh){
+        var names = ["TH1", "TH2", "TH3", "TH4", "TH5"];
+        for (var j = 0; j < 5; j++) {
+          document.getElementById(names[j]).style.background = '#C4C4C4';
+        }
+        document.getElementById(oTh).style.background = '#808080';
+      }
+    </script>
+  </head>
+
+  <body bgcolor="#C4C4C4">
+    <h1 align="center"> CMUH CRS Cancer Database</h1>
+    <hr/>
+    <table align="center" style="width:100%" cellpadding="10" border="1">
+      <tr>
+        <th id='th1' onclick="isHidden1('div1'); changeColor('th1')" bgcolor="#808080">基本資料</th>
+        <th id='th2' onclick="isHidden1('div2'); changeColor('th2')">過去病史</th>
+        <th id='th3' onclick="isHidden1('div3'); changeColor('th3')">初始症狀</th>
+        <th id='th4' onclick="isHidden1('div4'); changeColor('th4')">術前評估</th>
+        <th id='th5' onclick="isHidden1('div5'); changeColor('th5')">術前處置</th>
+        <th id='th6' onclick="isHidden1('div6'); changeColor('th6')">CCRT</th>
+        <th id='th7' onclick="isHidden1('div7'); changeColor('th7')">手術</th>
+        <th id='th8' onclick="isHidden1('div8'); changeColor('th8')">術後狀況</th>
+        <th id='th9' onclick="isHidden1('div9'); changeColor('th9')">病理</th>
+        <th id='th10' onclick="isHidden1('div10'); changeColor('th10')" >追加追蹤</th>
+      </tr>
+
+      <form method="POST" action="insert.php">
+      <tr>
+        <td colspan="10" >
+          <!--基本資料 basic-->
+          <div id="div1" style="display:block; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <tr>
+                <td valign="top">
+                  <div style="float:left;">Chart No:</div>
+                  <div style="float:right;">
+                    <input type="text" size="10" name="Chart" autocomplete="off" required >
+                  </div><br/><br/>
+      
+                  <div style="float:left;">ID No:</div>
+                  <div style="float:right;">
+                    <input type="text" size="10" name="ID" autocomplete="off" required >
+                  </div><br/><br/>
+      
+                  <div style="float:left;">Name:</div>
+                  <div style="float:right;"> 
+                    <input type="text" size="10" name="Name" autocomplete="off" required >
+                  </div><br/><br/>
+                  
+                  <div style="float:left;">Birthday : </div>
+                  <div style="float:right;"> 
+                    <input type="date" name="Birthday">
+                  </div><br/>
+                  
+                  <p>Gender :<input type="radio" name="gender" value="Male"/> Male
+                  <input type="radio" name="gender" value="Female"/> Female
+                  
+                  <div style="float:left;">Native : </div>
+                  <div style="float:right;">
+                    <input list="city" name="Native" type="text" size="15">
+                      <datalist id="city">
+                      <select>
+                        <option value="Taiwan">
+                        <option value="PRC">
+                        <option value="Hakka">
+                        <option value="Original">
+                        <option value="Aboreginal">
+                      </select>
+                      </datalist>
+                  </div>
+                </td>
+      
+                <td valign="top">
+                  <div style="float:left;">Dx : </div>
+                  <div style="float:right;">
+                    <input list="Dx" name="Dx" type="text" size="10">
+                    <datalist id="Dx" >
+                      <select>
+                        <option value="Anal cancl ca">
+                        <option value="Appendicial ca">
+                        <option value="A-colon ca">
+                        <option value="Cecal ca">
+                        <option value="D-colon ca">
+                        <option value="Hepatic flexure ca">
+                        <option value="Rectal ca">
+                        <option value="RS junctional ca">
+                        <option value="Splenic flexure ca">
+                        <option value="S-colon ca">
+                        <option value="T-colon ca">
+                      </select>
+                    </datalist>
+                  </div><br/><br/>
+      
+                  <div style="float:left;">Visiting staff : </div>
+                  <div style="float:right;">
+                    <input type="text" size="10" name="Visiting_staff">
+                  </div><br/><br/>
+      
+                  <div style="float:left;">Operator : </div>
+                  <div style="float:right;">
+                    <input type="text" size="10" name="Operator">
+                  </div><br/><br/>
+      
+                  <div style="float:left;">Source :</div>
+                  <div style="float:right;">
+                    <input list="Source" name="Source" type="text" size="10" autocomplete="off">
+                    <datalist id="Source">
+                      <select>
+                        <option value="OPD">
+                        <option value="Other hospital">
+                        <option value="Concolution">
+                        <option value="ER">
+                      </select>
+                    </datalist>
+                  </div><br/><br/>
+                  
+                  <input type="checkbox" name="HNPCC" value="yes">HNPCC
+                  <br/>
+                  <input type="checkbox" name="FAP" value="yes">FAP
+                  <br/>
+                </td>
+      
+                <td valign="top">
+                  <div style="float:left;">Date of initial diagnosis : </div>
+                  <div style="float:right;"><input type="date" name="Date_of_initial_diagnosis"></div>
+                  <br/>
+      
+                  <p><input type="checkbox" name="Metastases" value="yes">Metastases</p>
+                  
+                  <div style="float:left;">Date of metastases noted : </div>
+                  <div style="float:right;"> <input type="date" name="Date_of_metastases_noted"></div>
+                  <br/><br/>
+      
+                  <div style="float:left;">Time of last follow-up :</div>
+                  <div style="float:right;"><input type="date" name="Time_of_last_follow-up"></div>
+                  <br/><br/>
+      
+                  <div style="float:left;">Date of mortality : </div>
+                  <div style="float:right;"><input type="date" name="Date_of_mortality"></div>
+                  <br/><br/>
+      
+                  <div style="float:left;">Survival time (M) : </div>
+                  <div style="float:right;"><input type="text" size="10" name="Survival_time" value="0"></div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <div style="float:left;">Dx/Tx summary : &nbsp;&nbsp;</div>
+                  <textarea name="Dx/Tx_summary" cols="50" rows="4"></textarea>
+                  <br/><br/>
+      
+                  <div style="float:left;">Permanent adress : &nbsp;&nbsp;</div>
+                  <input type="text" size="50" name="Permanent_adress" autocomplete="off">
+                  <br/><br/>
+      
+                  <div style="float:left;">TEL : &nbsp;&nbsp;</div>
+                  <input type="text" name="TEL" autocomplete="off">
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!--過去病史 pass-->
+          <div id="div2" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <td valign="top">
+                <u>Medical_history</u><br/>
+                <input type="checkbox" name="Medical_history['DM']" value="DM">DM<br/>
+                <input type="checkbox" name="Medical_history['HTM']" value="HTM">HTM<br/>
+                <input type="checkbox" name="Medical_history['CVA']" value="CVA">CVA<br/>
+                <input type="checkbox" name="Medical_history['CAD']" value="CAD">CAD<br/>
+                <input type="checkbox" name="Medical_history['COPD']" value="COPD">COPD<br/>
+                <input type="checkbox" name="Medical_history['CHF']" value="CHF">CHF<br/>
+                <input type="checkbox" name="Medical_history['Liver cirrhosis']" value="Liver cirrhosis">Liver cirrhosis<br/>
+                <input type="checkbox" name="Medical_history['Gout']" value="Gout">Gout<br/>
+              </td>
+    
+              <td valign="top">
+                <u>Surgical history</u><br/>
+                <textarea name="Surgical_history" cols="20" rows="3"></textarea>
+                <br/><br/>
+    
+                <u>Personal Hx</u><br/>
+                Smoking : <input list="Smoking" type="text" name="Smoking" size="15">
+                <datalist id="Smoking" >
+                  <select name="Smoking">
+                    <option value="None">
+                    <option value="1-10">
+                    <option value="11-20">
+                    <option value="Heavy">
+                  </select>
+                </datalist>
+                <br/>
+    
+                Drinking : <input list="Drinking" type="text" name="Drinking" size="15">
+                <datalist id="Drinking" >
+                  <select>
+                    <option value="None">
+                    <option value="Social">
+                    <option value="Chronic">
+                  </select>
+                </datalist>
+                <br/>
+    
+                Betal nut chewing : <input list="Betal_nut" type="text" name="Betal_nut" size="6">
+                <datalist id="Betal_nut">
+                  <select>
+                    <option value="None">
+                    <option value="Social">
+                    <option value="Chronic">
+                  </select>
+                </datalist> 
+              </td>
+              
+              <td valign="top">
+                <u>Family Hx of CRC</u><br/>
+                <input type="checkbox" name="Family_CRC['1']" value="1 st degree">1 st degree<br/>
+                <input type="checkbox" name="Family_CRC['2']" value="2 nd degree">2 nd degree<br/>
+                <input type="checkbox" name="Family_CRC['3']" value="3 rd degree">3 rd degree<br/>
+                <br/>
+
+                <u>Family Hx of other cancer</u><br/>
+                <input type="checkbox" name="Family_other_GI" value="GI">GI cancer
+                <br/>
+                Other cancer : <br/>
+                <textarea name="Family_other_cancer" ></textarea>
+              </td>
+            </table>
+          </div>
+
+          <!--初始症狀-->
+          <div id="div3" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <tr>
+                <td valign="top">
+                  <u>Asymptomatic</u><br/>
+                  <input type="checkbox" name="Stool_OB" value="yes">Stool OB<br/>
+                  <input type="checkbox" name="Colonoscocopy" value="yes">Colonoscocopy<br/>
+                  <input type="checkbox" name="CEA" value="yes">CEA<br/>
+                  <input type="checkbox" name="CT" value="yes">CT<br/>
+                  <input type="checkbox" name="MRI" value="yes">MRI<br/>
+                  <input type="checkbox" name="PET" value="yes">PET<br/>
+                  <br/><br />
+
+                  <u>Blood passage from anv</u><br/>
+                  <input type="checkbox" name="Fresh_blood" value="yes">Fresh blood<br/>
+                  <input type="checkbox" name="Bloody_stool" value="yes">Bloody stool<br/>
+                  <input type="checkbox" name="Melanoma" value="yes">Melanoma<br/>
+                </td>
+                
+                <td valign="top">
+                  <u>Changing in bowel habit</u><br/>
+                  <input type="checkbox" name="Small_caliber_of_stool" value="yes">Small caliber of stool<br/>
+                  <input type="checkbox" name="Tenesmus" value="yes">Tenesmus<br/>
+                  <input type="checkbox" name="Constipation" value="yes">Constipation<br/>
+                  <input type="checkbox" name="Diarrhea" value="yes">Diarrhea<br/>
+                  <input type="checkbox" name="Musus_passage" value="yes">Musus passage<br/>
+                  <br/><br />
+
+                  <u>Abdomen discomfor</u><br/>
+                  <input type="checkbox" name="Abdomen_pain" value="yes">Abdomen pain<br/>
+                  <input type="checkbox" name="Abdomen_distention" value="yes">Abdomen distention<br/>
+                  <input type="checkbox" name="Abdomen_fullness" value="yes">Abdomen fullness<br/>
+                  <input type="checkbox" name="Abdomen_mass" value="yes">Abdomen mass<br/>
+                </td>
+
+                <td valign="top">
+                  <u>Generalized condition change</u><br/>
+                  <input type="checkbox" name="Vomiting" value="yes">Vomiting<br/>
+                  <input type="checkbox" name="Loss_appetite" value="yes">Loss appetite<br/>
+                  <input type="checkbox" name="Anemia" value="yes">Anemia<br/>
+                  Body weight loss : <input type="text" name="weight_loss" size="1" value="0"> KG<br/>
+                  <br/>
+
+                  <input type="checkbox" name="Peritonitis" value="yes">
+                  <u>Peritonitis</u>
+                  <br/><br/>
+
+                  <u>Distal metastasis : </u><br/>
+                  <textarea name="Distal_metastasis" cols="20" rows="3"></textarea>
+                  <br/>
+
+                  <u>Other S/S:</u><br/>
+                  <textarea name="Other_SS" cols="20" rows="3"></textarea>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" align="center">
+                  <u>Duration of Initial symptom</u>:
+                  <input type="text" name="Duration_Initial_symptom">
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!--術前評估-->
+          <div id="div4" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" style="width:1100px; height:640px;">
+            <tr>
+              <td valign="top">
+                <u>CBC</u><br />
+                <div style="float:left;">Hemoglobin : </div>
+                <div style="float:right; "><input type="text" name="Hemoglobin" size="5"/></div>
+                <br/>
+                <div style="float:left;">WBC : </div>
+                <div style="float:right;"><input type="text" name="WBC" size="5"/></div>
+                <br/>
+                <div style="float:left;">Platelet(k) : </div>
+                <div style="float:right;"><input type="text" name="Platelet" size="5"/></div>
+                <br/><br/>
+    
+                <u>Liver function</u><br />
+                <div style="float:left;">GOT : </div>
+                <div style="float:right;"><input type="text" name="GOT" size="5"/></div>
+                <br/>
+                <div style="float:left;">GPT : </div> 
+                <div style="float:right;"><input type="text" name="GPT" size="5"/></div>
+                <br/>
+                <div style="float:left;">ALk-P : </div>
+                <div style="float:right;"><input type="text" name="ALk" size="5"/></div>
+                <br/>
+                <div style="float:left;">Bil-T : </div>
+                <div style="float:right;"><input type="text" name="BilT" size="5"/></div>
+                <br/>
+                <div style="float:left;">Bil-D : </div>
+                <div style="float:right;"><input type="text" name="BilD" size="5"/></div>
+                <br/>
+                <div style="float:left;">Albumin : </div>
+                <div style="float:right;"><input type="text" name="Albumin" size="5"/></div>
+                <br/><br/>
+
+                <u>Renal Function/electrolyte</u><br />
+                <div style="float:left;">BUN : </div>
+                <div style="float:right;"><input type="text" name="BUN" size="5"/></div>
+                <br/>
+                <div style="float:left;">Creatinine : </div>
+                <div style="float:right;"><input type="text" name="Creatinine" size="5"/></div>
+                <br/>
+                <div style="float:left;">Na+ : </div>
+                <div style="float:right;">
+                  <input type="text" name="Na" size="5"/>
+                </div>
+                <br/>
+                <div style="float:left;">K+ : </div>
+                <div style="float:right;">
+                  <input type="text" name="K" size="5"/>
+                </div>
+              </td>
+
+              <td valign="top">
+                <u>Caugulation profile</u><br/>
+                <div style="float:left;">PT : </div>
+                <div style="float:right;"><input type="text" name="PT" size="5"></div>
+                <br/>
+                <div style="float:left;">APTT : </div>
+                <div style="float:right;"><input type="text" name="APTT" size="5"></div>
+                <br/>
+                <div style="float:left;">INR: </div>
+                <div style="float:right;"><input type="text" name="INR" size="5"></div>
+                <br/><br/>
+
+                <u>Tumor marker</u><br/>
+                <div style="float:left;">CEA :</div>
+                <div style="float:right;">
+                  <input type="text" name="CEA" size="5">
+                </div>
+                <br/>
+                <div style="float:left;">CA-125 :</div>
+                <div style="float:right;">
+                  <input type="text" name="CA125" size="5">
+                </div><br/>
+                <div style="float:left;">CA-199 :</div>
+                <div style="float:right;">
+                  <input type="text" name="CA199" size="5">
+                </div><br/>
+                <div style="float:left;">Other :</div>
+                <div style="float:right;">
+                  <textarea  name="Other4_1"></textarea>
+                </div><br/><br/><br/>
+
+                <div style="float:left;"><u>Stool OB :</u></div>
+                <div style="float:right;">
+                    <select name="Stool_OB2">
+                      <option value="None">None</option>
+                      <option value="Positive">Positive</option>
+                      <option value="Negative">Negative</option>
+                    </select>
+                </div><br/>
+
+                <div style="float:left;"><u>Bone scan :</u></div>
+                <div style="float:right;">
+                    <select name="Bone_scan">
+                      <option value="None">None</option>
+                      <option value="Positive">Positive</option>
+                      <option value="Negative">Negative</option>
+                    </select>
+                </div><br/><br/>
+                <input type="checkbox" name="MRI2">MRI<br/><br/>
+
+                <div style="float:left;"><u>PET scan :</u></div>
+                <div style="float:right;">
+                    <select name="PET_scan">
+                      <option value="None">None</option>
+                      <option value="Positive">Positive</option>
+                      <option value="Negative">Negative</option>
+                    </select>
+                </div>
+              </td>
+
+              <td valign="top">
+                <div style="float:left;"><u>Scopy : </u></div>
+                <div style="float:right;">
+                  <select name="Scopy">
+                    <option value="Colono scopy">Colono scopy</option>
+                    <option value="Sigmoid scopy">Sigmoid scopy</option>
+                  </select>
+                </div><br/>
+                <input type="radio" name="Scopy_c" value="Complete">Complete<br/>
+                <input type="radio" name="Scopy_c" value="Incomplete">Incomplete
+                <div style="float:right;">
+                  Up to : 
+                  <input type="text" name="Up_to" size="3"> CM
+                </div><br/>
+                <div style="float:left;">Obstruction : </div>
+                <div style="float:right;">
+                  <select name="Obstruction">
+                    <option value="None">None</option>
+                    <option value="Partial">Partial</option>
+                    <option value="Total">Total</option>
+                  </select>
+                </div><br/><br/>
+                <div style="float:left;">Tumor location : </div>
+                <div style="float:right;">
+                  <select name="Tumor_location">
+                    <option value="Rectum">Rectum</option>
+                    <option value="R-S junction">R-S junction</option>
+                    <option value="S-colon">S-colon</option>
+                    <option value="D-colon">D-colon</option>
+                    <option value="Splenic flexure">Splenic flexure</option>
+                    <option value="T-colon">T-colon</option>
+                    <option value="Hepatic fluxure">Hepatic fluxure</option>
+                    <option value="A-colon">A-colon</option>
+                    <option value="Cecum">Cecum</option>
+                  </select>
+                </div><br/>
+                Distence from AV : 
+                <div style="float:right;">
+                  <input type="text" name="Distence_from_AV" size="3"> CM
+                </div><br/><br/>
+                <input type="checkbox" name="Polyps1">Polyps<br/>
+                <br/>
+                <u>Radiology</u><br/>
+                <div style="float:left;">CXR</div>
+                <div style="float:right;">
+                  <select name="CXR">
+                    <option value="No">No</option>
+                    <option value="WNL">WNL</option>
+                    <option value="Nodule">Nodule</option>
+                  </select>
+                </div><br/><br/>
+
+                <u>Abdominal CT</u><br/>
+                <input type="checkbox" value="Wall thickening" name="Abdominal_CT['0']">Wall thickening<br/>
+                <input type="checkbox" value="Involving adjvcent organ" name="Abdominal_CT['1']">Involving adjvcent organ<br/>
+                <input type="checkbox" value="LN enlargement" name="Abdominal_CT['2']">LN enlargement<br/>
+                <input type="checkbox" value="Liver lodules" name="Abdominal_CT['3']">Liver lodules<br/>
+                Other : <input type="text" name="Other4_2" size="10">
+              </td>
+
+              <td valign="top">
+                <div style="float:left;">Barium enema</div>
+                <div style="float:right;">
+                  <select name="Barium_enema">
+                    <option value="Nil">Nil</option>
+                    <option value="No finding">No finding</option>
+                    <option value="Tumor detect">Tumor detect</option>
+                  </select>
+                </div><br/>
+                  <input type="checkbox" name="Polyps2" value="yes">Polyps
+                <br/><br/>
+
+                <div style="float:left;">Abdominal sonography</div>
+                <div style="float:right;">
+                  <select name="Abdominal_sonography">
+                    <option value="No">No</option>
+                    <option value="WNL">WNL</option>
+                    <option value="Nodule">Nodule</option>
+                  </select>
+                </div><br/>
+                Nodule number : <input type="text" name="Noudle_number" size="5">
+                <br/><br/>
+                <div style="float:left;">Others(1) : </div> 
+                <div style="float:right;">
+                  <textarea name="Other4_3"></textarea>
+                </div><br/><br/>
+                <div style="float:left;">Others(2) : </div> 
+                <div style="float:right;">
+                  <textarea name="Other4_4"></textarea>
+                </div>
+              </td>
+            </tr>
+          </table>
+          </div>
+
+          <!--術前處置-->
+          <div id="div5" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <tr>
+                <td valign="top">
+                  <u>Nutrition support</u><br/>
+                  <input type="checkbox" name="Nutrition_support['Albumin']" value="yes">Albumin<br/>
+                  <input type="checkbox" name="Nutrition_support['PPN']" value="yes">PPN<br/>
+                  <input type="checkbox" name="Nutrition_support['TPN']" value="yes">TPN<br/>
+                  days:<input type="text" name="Nutrition_support['days']" value="0" size="3"><br/><br/>
+
+                  <u>Blood transfusiopn</u><br/>
+                  <div style="float:left;">P-RBC : </div>
+                  <div style="float:right;">
+                    <select name="P_RBC">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value=">6">> 6</option>
+                    </select>  
+                  </div><br/>
+                  <div style="float:left;">Whole blood :</div>
+                  <div style="float:right;">
+                    <select name="Whole_blood">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value=">4">> 4</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">FFP :</div>
+                  <div style="float:right;">
+                    <select name="FFP">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value=">6">> 6</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Platelet : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Platelet" size="10" value="0">
+                  </div><br/>
+                </td>
+                
+                <td valign="top">
+                  <u>Colon preparation</u><br/>
+                  <div style="float:left;">Type : </div>
+                  <div style="float:right;">
+                    <input list="Colon_preparation_Type" name="Type" type="text" size="15">
+                    <datalist id="Type">
+                    <select>
+                      <option value="One_day_prepare">
+                      <option value="Two_day_prepare">
+                      <option value="Three_day_prepare">
+                    </select>
+                    </datalist>
+                  </div><br/>
+                  <div style="float:left;">Laxativs : </div>
+                  <div style="float:right;">
+                      <select name="Laxativs">
+                        <option value="None">None</option>
+                        <option value="Klean prep">Klean prep</option>
+                        <option value="Phosphosoda">Phosphosoda</option>
+                        <option value="Dulcolax">Dulcolax</option>
+                        <option value="Caster Oil">Caster Oil</option>
+                      </select>
+                  </div>
+                  <br/>
+                  <input type="checkbox" name="Oral_antibiotics" value="yes">Oral antibiotics</br>
+                  <input type="checkbox" name="Retention_enema" value="yes">Retention enema</br>
+                  <br/>
+                  
+                  <u>Pre-OP Antibiotics</u><br/>
+                  <input type="checkbox" name="Pre_OP['Cafazolin']" values="Cafazolin (1g)">Cafazolin (1 g)<br/>
+                  <input type="checkbox" name="Pre_OP['Gentamicin']" values="Gentamicin (80mg)">Gentamicin (80 mg)<br/>
+                  <input type="checkbox" name="Pre_OP['Metronidazole']" values="Metronidazole (500mg)">Metronidazole (500 mg)<br/>
+                  <div style="float:left;">Other : </div>
+                  <div style="float:right;">
+                    <textarea name="Pre_OP_Other"></textarea> 
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!--CCRT-->
+          <div id="div6" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+            
+              <td valign="top">
+                <u>Neoadjavent C/T</u><br/>
+                <input type="checkbox" name="Neoadjavent['UFT']" value="UFT">UFT<br/>
+                <input type="checkbox" name="Neoadjavent['Xeloda']" value="Xeloda">Xeloda<br/>
+                <br/>
+
+                <u>Neoadjavent R/T</u><br/>
+                Total dose (Gy) : <input type="date" name="Neoadjavent_dose"><br/>
+                <br/>
+
+                Side effect : <input type="text" name="Side_effect" size="13"><br/>
+                <br/>
+
+                <u>Time to surgery(wks) : </u>
+                <select name="Time_to_surgery">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value=">8">>8</option>
+                </select>
+              </td>
+            
+            </table>
+          </div>
+
+          <!--手術-->
+          <div id="div7" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <tr >
+                <td >
+                  <div style="float:left;"><u>Operatin date : </u></div>
+                  <div style="float:right;">
+                    <input type="date" name="Operatin_date">
+                  </div>
+                </td>
+                <td>
+                  <div style="float:left;"><u>OP method : </u></div>
+                  <div style="float:right;">
+                    <select name="OP_method1">
+                      <option value="Scope">Scope</option>
+                      <option value="Open">Open</option>
+                      <option value="Scope to open">Scope to open</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:right;">
+                    <select name="OP_method2" >
+                      <option value="Hartmanns procedure">Hartmanns procedure</option>
+                      <option value="APR">APR</option>
+                      <option value="CAA(staple)">CAA(staple)</option>
+                      <option value="CAA(hand sewing)">CAA(hand sewing)</option>
+                      <option value="LAR">LAR</option>
+                      <option value="AR">AR</option>
+                      <option value="Left colectomy">Left colectomy</option>
+                      <option value="T-colectomy">T-colectomy</option>
+                      <option value="Extended right hemicolectomy">Extended right hemicolectomy</option>
+                      <option value="Right hemicolectomy">Right hemicolectomy</option>
+                      <option value="Limited right hemicolectomy">Limited right hemicolectomy</option>
+                      <option value="Total colectomy with IRA">Total colectomy with IRA</option>
+                      <option value="Total proctocolectomy with ileostomy">Total proctocolectomy with ileostomy</option>
+                      <option value="Total proctocolectomy with pouch">Total proctocolectomy with pouch</option>
+                      <option value="Diversion">Diversion</option>
+                      <option value="Bypass">Bypass</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <input type="checkbox" name="Laparoscopy" value="yes">Laparoscopy
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">
+                  <div style="float:left;">Extent of surgery : </div>
+                  <div style="float:right;">
+                    <select name="Extent_of_sugery">
+                      <option value="Curative">Curative</option>
+                      <option value="Palliative">Palliative</option>
+                    <option value="Uncertain">Uncertain</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Anesthesia type : </div>
+                  <div style="float:right;">
+                    <select name="Anesthesia_type">
+                      <option value=""></option>
+                      <option value="GA">GA</option>
+                      <option value="SA">SA</option>
+                      <option value="EA">EA</option>
+                      <option value="IVG">IVG</option>
+                      <option value="LA">LA</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">OP time(min) : </div>
+                  <div style="float:right;">
+                  <input type="text" name="OP_time" size="5">
+                  </div><br/>
+                  <div style="float:left;">Blood loss(cc) :</div>
+                  <div style="float:right;">
+                  <input type="text" name="Blood_loss" size="5">
+                  </div><br/><br/>
+
+                  <u>Blood transfusion</u><br/>
+                  <div style="float:left;">P-RBC : </div>
+                  <div style="float:right;">
+                    <input type="text" name="P_RBC2" value="0" size="5">
+                  </div><br/>
+                  <div style="float:left;">Whole blood : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Whole_blood2" value="0" size="5">
+                  </div><br/>
+                  <div style="float:left;">FFP : </div>
+                  <div style="float:right;">
+                    <input type="text" name="FFP2" value="0" size="5">
+                  </div><br/>
+                  <div style="float:left;">Platelet : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Platelet2" value="0" size="5">
+                  </div><br/><br/>
+
+                  <div style="float:left;"><u>Type of incision : </u></div>
+                  <div style="float:right;">
+                    <select name="Type_of_incision">
+                      <option value="Lower midline">Lower midline</option>
+                      <option value="Upper midline">Upper midline</option>
+                      <option value="Transverse">Transverse</option>
+                      <option value="RUQ oblique">RUQ oblique</option>
+                      <option value="LLQ oblique">LLQ oblique</option>
+                      <option value="Laparoscopy">Laparoscopy</option>
+                      <option value="Long midline">Long midline</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Ascitis color : </div>
+                  <div style="float:right;">
+                    <select name="Ascitis_color">
+                      <option value="None">None</option>
+                      <option value="Clear">Clear</option>
+                      <option value="Turbid">Turbid</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Synchronous colonic tumor site : </div> 
+                  <br/>
+                  <div style="float:right;">
+                    <select name="Synchronous_colonic_tumor_site">
+                      <option value="Cecum">Cecum</option>
+                      <option value="A-colon">A-colon</option>
+                      <option value="Hepatic flexure">Hepatic flexure</option>
+                      <option value="T-colon">T-colon</option> 
+                      <option value="Splenic flexure">Splenic flexure</option>
+                      <option value="D-colon">D-colon</option>
+                      <option value="S-colon">S-colon</option>
+                      <option value="R-S junction">R-S junction</option>
+                      <option value="Upper rectum">Upper rectum</option>
+                      <option value="Middle rectum">Middle rectum</option>
+                      <option value="Lower rectum">Lower rectum</option>
+                      <option value="Anal cancal">Anal cancal</option>
+                      <option value="Anus">Anus</option>
+                      <option value="2-site">2-site</option>
+                    </select>
+                  </div>
+                  <br/>
+                  <input type="checkbox" name="Peritoneal_seeding" value="yes">Peritoneal seeding
+
+                </td>
+                <td valign="top">
+                  <div style="float:left;"><u>Tumor site : </u></div>
+                  <div style="float:right;">
+                    <select name="Tumor_site">
+                      <option value="Cecum">Cecum</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Type of anastomosis : </div>
+                  <div style="float:right;">
+                    <select name="Type_anastomosis">
+                      <option value="Stapled">Stapled</option>
+                      <option value="Hand-sewing">Hand-sewing</option>
+                      <option value="None">None</option>
+                    </select>
+                  </div><br/>
+                  <div style="float:left;">Anastomosis to anal verge : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Anastomosis_to_anal_verge" size="5">
+                  </div><br/>
+                  <div style="float:left;">Distal distence (cm) : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Distal_distence" size="5">
+                  </div><br/><br/>
+
+                  <u>Tumor size</u><br/>
+                  <div style="float:left;">Long : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Tumor_long" size="13">
+                  </div><br/>
+                  <div style="float:left;">Wide : </div>
+                  <div style="float:right;">
+                    <input type="text" name="Tumor_wide" size="13">
+                  </div><br/>
+                  <div style="float:left;">High</div>
+                  <div style="float:right;">
+                    <input type="text" name="Tumor_High" size="13">
+                  </div><br/><br/>
+
+                  <div style="float:left;">
+                    <u>Type of tumor : </u>
+                  </div>
+                  <div style="float:right;">
+                    <select name="Type_of_tumor">
+                      <option value="Ulcrative">Ulcrative</option>
+                      <option value="Polypoid">Polypoid</option>
+                      <option value="Annular">Annular</option>
+                      <option value="other">other</option>
+                    </select>
+                  </div><br/>
+                  <input type="checkbox" name="Perforation" value="yes">Perforation<br/>
+                  <input type="checkbox" name="Obstruction2" value="yes">Obstruction
+                </td>
+
+                <td valign="top">
+                  <u>Invasion to other structure :</u><br/>
+                  <textarea name="Invasion_other"></textarea>
+                  <br/>
+                  <input type="checkbox" name="Combined_resection" value="yes">Combined resection
+                  <br/><br/>
+                  <div style="float:left;"><u>Palpable LNs : </u></div>
+                  <div style="float:right;">
+                    <select name="Palpable_LNs">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="Uncertain">Uncertain</option>
+                    </select>
+                  </div><br/>
+
+                  <div style="float:left;"><u>Liver nodule : </u></div>
+                  <div style="float:right;">
+                    <select name="Liver_nodule">
+                      <option value="None">None</option>
+                      <option value="Right lobe single">Right lobe single</option>
+                      <option value="Right lobe multiple">Right lobe multiple</option>
+                      <option value="Left lobe single">Left lobe single</option>
+                      <option value="Left lobe multiple">Left lobe multiple</option>
+                      <option value="Bilateral">Bilateral</option>
+                    </select>
+                  </div><br/>
+
+                  <div style="float:left;">Management : <br/></div>
+                  <div style="float:right;">
+                    <select name="Management">
+                      <option value="None">None</option>
+                      <option value="BX">BX</option>
+                      <option value="Resection">Resection</option>
+                    </select>
+                  </div><br/><br/>
+                  
+                  <div style="float:left;">Protective stoma : </div>
+                  <div style="float:right;">
+                    <select name="Protective_stoma">
+                      <option value="No">No</option>
+                      <option value="Ileostomy">Ileostomy</option>
+                      <option value="Colostomy">Colostomy</option>
+                    </select>
+                  </div><br/>
+                  <input type="checkbox" name="Intracolonic" value="yes">Intracolonic irrigation
+                  <br/><br/>
+                  <u>Reason of palliative TX : </u><br/>
+                  
+                  <textarea name="Reason_of_palliative_TX"></textarea>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!--術後-->
+          <div id="div8" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <td valign="top">
+                <u>Antiobitics</u><br/><br/>
+                <div style="float:left;"> Cefazoline</div><br/>
+                <div style="float:right;">
+                  DC on POD (1) :<input type="text" name="Cefazoline" size="5">
+                </div><br/><br/>
+                <div style="float:left;"> Gentamicin</div><br/>
+                <div style="float:right;">
+                  DC on POD (2) :<input type="text" name="Gentamicin" size="5">
+                </div><br/><br/>
+                <div style="float:left;">Metronidazole</div><br/>
+                <div style="float:right;">
+                  DC on POD (3) :<input type="text" name="Metronidazole" size="5">
+                </div><br/><br/>
+                <div style="float:left;">
+                  Others : <input type="text" name="Antiobitics_other" size="5">
+                </div><br/>
+                <div style="float:right;">
+                DC on POD (4) : <input type="text" name="DC4" size="5">
+                </div>
+              </td>
+              <td valign="top">
+                <div style="float:left;">NG : </div>
+                <div style="float:right;">
+                  <select name="NG">
+                    <option value="None">None</option>
+                    <option value="Free drain">Free drain</option>
+                    <option value="Decompression">Decompression</option>
+                  </select>
+                </div><br/>
+                <div style="float:right;">
+                  Removed on POD (1) :
+                  <input type="text" name="POD1" size="5">
+                </div><br/><br/>
+                <div style="float:left;">PCA : </div>
+                <div style="float:right;">
+                  <select name="PCA">
+                    <option value="None">None</option>
+                    <option value="Epidura">Epidura</option>
+                    <option value="IV">IV</option>
+                  </select>
+                </div><br/>
+                <div style="float:right;">
+                  Removed on POD (2) :
+                  <input type="text" name="POD2" size="5">
+                </div><br/><br/>
+
+                <div style="float:left;">Flatus on POD : </div>
+                <div style="float:right;">
+                  <input type="text" name="Flatus" size="5">
+                </div><br/>
+                <div style="float:left;">Defecation on POD : </div>
+                <div style="float:right;">
+                  <input type="text" name="Defecation" size="5">
+                </div><br/>
+                <div style="float:left;">Try water on POD : </div>
+                <div style="float:right;">
+                  <input type="text" name="Try_water" size="5">
+                </div><br/>
+                <div style="float:left;">Soft diet on POD : </div>
+                <div style="float:right;">
+                  <input type="text" name="Soft_diet" size="5">
+                </div>
+              </td>
+
+              <td valign="top">
+                <u>Complication</u><br/><br/>
+                <div style="float:left;">Surgical : </div>
+                <div style="float:right;">
+                  <select name="Surgical">
+                    <option value="None">None</option>
+                    <option value="Wound infection">Wound infection</option>
+                    <option value="Leakage">Leakage</option>
+                    <option value="Intraabdominal bbscess">Intraabdominal bbscess</option>
+                    <option value="Hemonrrhage">Hemonrrhage</option>
+                    <option value="Intestinal obstruction">Intestinal obstruction</option>
+                  </select>
+                </div><br/>
+                <div style="float:left;">Medical : </div>
+                <div style="float:right;">
+                  <select name="Medical">
+                    <option value="None">None</option>
+                    <option value="Proloned ileus">Proloned ileus</option>
+                    <option value="Pneumonia">Pneumonia</option>
+                    <option value="CVA">CVA</option>
+                    <option value="MI">MI</option>
+                    <option value="UTI">UTI</option>
+                    <option value="Urinary retention">Urinary retention</option>
+                    <option value="Renal failure">Renal failure</option>
+                    <option value="Respiratory failure">Respiratory failure</option>
+                  </select>
+                </div><br/>
+                <div style="float:left;"> Other : </div>
+                <div style="float:right;">
+                  <textarea name="Complication_other"></textarea>
+                </div><br/><br/>
+
+                <div style="float:left;">Length of hospitalization</div>
+                <div style="float:right;">
+                  <input type="text" name="Length_of_hospitalization" size="5">
+                </div><br/>
+                <div style="float:left;">Discharge on POD : </div>
+                <div style="float:right;">
+                  <input type="text" name="Discharge" size="5">
+                </div><br/><br/>
+
+                <input type="checkbox" name="Re" value="yes">Re-admission within 14 days<br/>
+                <input type="checkbox" name="Motality" value="yes">Motality within 30 days
+              </td>
+          </table>
+          </div>
+          
+          <!--病理-->
+          <div id="div9" style="display:none; height:650px">
+            <table align="center" cellpadding="10" border="1" class="container">
+              <td valign="top">
+                <u>Tumor size</u><br/>
+                <div style="float:left;">Long : </div>
+                <div style="float:right;">
+                  <input type="text" name="Tumor_long2" size="13">
+                </div><br/>
+                <div style="float:left;">Wide : </div>
+                <div style="float:right;">
+                  <input type="text" name="Tumor_wide2" size="13">
+                </div><br/>
+                <div style="float:left;">High</div>
+                <div style="float:right;">
+                  <input type="text" name="Tumor_high2" size="13">
+                </div><br/>
+                <div style="float:left;">Type : </div>
+                <div style="float:right;">
+                  <select name="Tumor_Type">
+                    <option value="Ulcerative">Ulcerative</option>
+                    <option value="Polypoid">Polypoid</option>
+                    <option value="Annular">Annular</option>
+                  </select>
+                </div><br/>
+                <div style="float:left;">Distal Margin : </div>
+                <div style="float:right;">
+                  <input type="text" name="Distal_Margin" size="3">
+                  CM
+                </div><br/>
+                <div style="float:left;">Call type : </div>
+                <div style="float:right;">
+                  <select name="Call_type">
+                    <option value="Adenocarcinoma">Adenocarcinoma</option>
+                    <option value="SCC">SCC</option>
+                    <option value="Mucinous adenocarcinoma">Mucinous adenocarcinoma</option>
+                    <option value="Signet ring cell adenocarcinoma">Signet ring cell adenocarcinoma</option>
+                    <option value="Carcinoid tumor">Carcinoid tumor</option>
+                    <option value="Leiomyoscarcoma">Leiomyoscarcoma</option>
+                    <option value="GIST">GIST</option>
+                    <option value="Others">Others</option>
+                  </select>
+
+                </div><br/>
+  
+                <div style="float:left;">Differetiatnion : </div>
+                <div style="float:right;">
+                  <select name="Differetiatnion">
+                    <option value="Well">Well</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Poor">Poor</option>
+                    <option value="Well to moderate">Well to moderate</option>
+                    <option value="Moderate to poor">Moderate to poor</option>
+                  </select>
+                </div><br/>
+                <input type="checkbox" name="Lypmhatic" value="yes"> Lypmhatic invasion<br/>
+                <input type="checkbox" name="Vascular" value="yes"> Vascular invasion<br/>
+                <input type="checkbox" name="Perineural" value="yes"> Perineural invasion<br/>
+                
+              </td>
+              <td valign="top">
+                <input type="checkbox" name="Synchronous_Polypo" value="yes"> <u>Synchronous polypo</u><br/>
+                <input type="checkbox" name="Synchronous_cancer" value="yes"> <u>Synchronous cancer</u>
+                <br/>
+                <div style="float:left;">Cut margin condition</div>
+                <div style="float:right;">
+                 <select name="Cut_margin_condition">
+                  <option value="Clear">Clear</option>
+                  <option value="Involved">Involved</option>
+                 </select>
+                </div><br/>
+                <div style="float:left;">Number of LN examed</div>
+                <div style="float:right;">
+                  <input type="text" name="LN_examed" size="5">
+                </div><br/>
+                <div style="float:left;">Number of LN involved</div>
+                <div style="float:right;">
+                  <input type="text" name="LN_involved" size="5">
+                </div><br/><br/>
+
+                <u>Final stage</u><br/>
+                <div style="float:left;">T</div>
+                <div style="float:right;">
+                  <input type="text" name="Final_T" size="5">
+                </div><br/>
+                <div style="float:left;">N</div>
+                <div style="float:right;">
+                  <input type="text" name="Final_N" size="5">
+                </div><br/>
+                <div style="float:left;">M</div>
+                <div style="float:right;">
+                  <input type="text" name="Final_M" size="5">
+                </div><br/>
+                <div style="float:left;">Stage</div>
+                <div style="float:right;">
+                  <input type="text" name="Final_stage" size="5">
+                </div>
+              </td>
+            </table>
+          </div>
+
+          <!--追加追蹤-->
+          <div id="div10" style="display:none; height:650px">
+            <table align="center" style="width:100%" cellpadding="10" border="1">
+              <tr>
+                <th id="TH1" onclick="isHidden2('Div1'); changeColor2('TH1')" bgcolor="#808080">Chemotherapy (adjavent)</th>
+                <th id="TH2" onclick="isHidden2('Div2'); changeColor2('TH2')">Adjavent radiotherapy</th>
+                <th id="TH3" onclick="isHidden2('Div3'); changeColor2('TH3')">Tumor marker</th>
+                <th id="TH4" onclick="isHidden2('Div4'); changeColor2('TH4')">Abdominal CT</th>
+                <th id="TH5" onclick="isHidden2('Div5'); changeColor2('TH5')">PET</th>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <!--Chemotherapy-->
+                  <div id="Div1" style="display:block;">
+                    <table align="center" style="width:100%; text-align:center;" cellpadding="10" border="1">
+                      <tr>
+                        <th width="35px">次數</th>
+                        <th>Start time</th>
+                        <th>End time</th>
+                      </tr>
+                     <tr>
+                        <td>1</td>
+                        <td><input type="date" name="start1"></td>
+                        <td><input type="date" name="end1"></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><input type="date" name="start2"></td>
+                        <td><input type="date" name="end2"></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><input type="date" name="start3"></td>
+                        <td><input type="date" name="end3"></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><input type="date" name="start4"></td>
+                        <td><input type="date" name="end4"></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td><input type="date" name="start5"></td>
+                        <td><input type="date" name="end5"></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td><input type="date" name="start6"></td>
+                        <td><input type="date" name="end6"></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td><input type="date" name="start7"></td>
+                        <td><input type="date" name="end7"></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td><input type="date" name="start8"></td>
+                        <td><input type="date" name="end8"></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td><input type="date" name="start9"></td>
+                        <td><input type="date" name="end9"></td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td><input type="date" name="start10"></td>
+                        <td><input type="date" name="end10"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!--Adjavent radiotherapy-->
+                  <div id="Div2" style="display:none;">
+                    <table align="center" style="width:100%; text-align:center;"cellpadding="10" border="1">
+                      <tr>
+                        <th width="35px">次數</th>
+                        <th>Start time</th>
+                        <th>End time</th>
+                        <th>Dose</th>
+                      </tr>
+                     <tr>
+                        <td>1</td>
+                        <td><input type="date" name="s1"></td>
+                        <td><input type="date" name="e1"></td>
+                        <td><input type="text" size="5" name="d1"></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><input type="date" name="s2"></td>
+                        <td><input type="date" name="e2"></td>
+                        <td><input type="text" size="5" name="d2"></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><input type="date" name="s3"></td>
+                        <td><input type="date" name="e3"></td>
+                        <td><input type="text" size="5" name="d3"></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><input type="date" name="s4"></td>
+                        <td><input type="date" name="e4"></td>
+                        <td><input type="text" size="5" name="d4"></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td><input type="date" name="s5"></td>
+                        <td><input type="date" name="e5"></td>
+                        <td><input type="text" size="5" name="d5"></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td><input type="date" name="s6"></td>
+                        <td><input type="date" name="e6"></td>
+                        <td><input type="text" size="5" name="d6"></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td><input type="date" name="s7"></td>
+                        <td><input type="date" name="e7"></td>
+                        <td><input type="text" size="5" name="d7"></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td><input type="date" name="s8"></td>
+                        <td><input type="date" name="e8"></td>
+                        <td><input type="text" size="5" name="d8"></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td><input type="date" name="s9"></td>
+                        <td><input type="date" name="e9"></td>
+                        <td><input type="text" size="5" name="d9"></td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td><input type="date" name="s10"></td>
+                        <td><input type="date" name="e10"></td>
+                        <td><input type="text" size="5" name="d10"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!--Tumor marker-->
+                  <div id="Div3" style="display:none;">
+                    <table align="center" style="width:100%; text-align:center;" cellpadding="10" border="1">
+                      <tr>
+                        <th width="35px">次數</th>
+                        <th>Time</th>
+                        <th>CEA</th>
+                        <th>CA-125</th>
+                        <th>CA-199</th>
+                        <th>Others</th>
+                      </tr>
+                     <tr>
+                        <td>1</td>
+                        <td><input type="date" name="Td1"></td>
+                        <td><input type="text" size="8" name="TC1"></td>
+                        <td><input type="text" size="8" name="T1251"></td>
+                        <td><input type="text" size="8" name="T1991"></td>
+                        <td><input type="text" size="8" name="To1"></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><input type="date" name="Td2"></td>
+                        <td><input type="text" size="8" name="TC2"></td>
+                        <td><input type="text" size="8" name="T1252"></td>
+                        <td><input type="text" size="8" name="T1992"></td>
+                        <td><input type="text" size="8" name="To2"></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><input type="date" name="Td3"></td>
+                        <td><input type="text" size="8" name="TC3"></td>
+                        <td><input type="text" size="8" name="T1253"></td>
+                        <td><input type="text" size="8" name="T1993"></td>
+                        <td><input type="text" size="8" name="To3"></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><input type="date" name="Td4"></td>
+                        <td><input type="text" size="8" name="TC4"></td>
+                        <td><input type="text" size="8" name="T1254"></td>
+                        <td><input type="text" size="8" name="T1994"></td>
+                        <td><input type="text" size="8" name="To4"></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td><input type="date" name="Td5"></td>
+                        <td><input type="text" size="8" name="TC5"></td>
+                        <td><input type="text" size="8" name="T1255"></td>
+                        <td><input type="text" size="8" name="T1995"></td>
+                        <td><input type="text" size="8" name="To5"></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td><input type="date" name="Td6"></td>
+                        <td><input type="text" size="8" name="TC6"></td>
+                        <td><input type="text" size="8" name="T1256"></td>
+                        <td><input type="text" size="8" name="T1996"></td>
+                        <td><input type="text" size="8" name="To6"></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td><input type="date" name="Td7"></td>
+                        <td><input type="text" size="8" name="TC7"></td>
+                        <td><input type="text" size="8" name="T1257"></td>
+                        <td><input type="text" size="8" name="T1997"></td>
+                        <td><input type="text" size="8" name="To7"></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td><input type="date" name="Td8"></td>
+                        <td><input type="text" size="8" name="TC8"></td>
+                        <td><input type="text" size="8" name="T1258"></td>
+                        <td><input type="text" size="8" name="T1998"></td>
+                        <td><input type="text" size="8" name="To8"></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td><input type="date" name="Td9"></td>
+                        <td><input type="text" size="8" name="TC9"></td>
+                        <td><input type="text" size="8" name="T1259"></td>
+                        <td><input type="text" size="8" name="T1999"></td>
+                        <td><input type="text" size="8" name="To9"></td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td><input type="date" name="Td0"></td>
+                        <td><input type="text" size="8" name="TC0"></td>
+                        <td><input type="text" size="8" name="T1250"></td>
+                        <td><input type="text" size="8" name="T1990"></td>
+                        <td><input type="text" size="8" name="To0"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!--Abdominal CT-->
+                  <div id="Div4" style="display:none;">
+                    <table align="center" style="width:100%; text-align:center;" cellpadding="10" border="1">
+                      <tr>
+                        <th width="35px">次數</th>
+                        <th>Time</th>
+                        <th>Fundings</th>
+                        <th>Polyp number</th>
+                        <th>Polyp side</th>
+                        <th>Other</th>
+                      </tr>
+                     <tr>
+                        <td>1</td>
+                        <td><input type="date" name="ACt1"></td>
+                        <td><input type="text" size="8" name="ACF1"></td>
+                        <td><input type="text" size="8" name="ACPn1"></td>
+                        <td><input type="text" size="8" name="ACPs1"></td>
+                        <td><input type="text" size="8" name="ACo1"></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><input type="date" name="ACt2"></td>
+                        <td><input type="text" size="8" name="ACF2"></td>
+                        <td><input type="text" size="8" name="ACPn2"></td>
+                        <td><input type="text" size="8" name="ACPs2"></td>
+                        <td><input type="text" size="8" name="ACo2"></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><input type="date" name="ACt3"></td>
+                        <td><input type="text" size="8" name="ACF3"></td>
+                        <td><input type="text" size="8" name="ACPn3"></td>
+                        <td><input type="text" size="8" name="ACPs3"></td>
+                        <td><input type="text" size="8" name="ACo3"></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><input type="date" name="ACt4"></td>
+                        <td><input type="text" size="8" name="ACF4"></td>
+                        <td><input type="text" size="8" name="ACPn4"></td>
+                        <td><input type="text" size="8" name="ACPs4"></td>
+                        <td><input type="text" size="8" name="ACo4"></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td><input type="date" name="ACt5"></td>
+                        <td><input type="text" size="8" name="ACF5"></td>
+                        <td><input type="text" size="8" name="ACPn5"></td>
+                        <td><input type="text" size="8" name="ACPs5"></td>
+                        <td><input type="text" size="8" name="ACo5"></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td><input type="date" name="ACt6"></td>
+                        <td><input type="text" size="8" name="ACF6"></td>
+                        <td><input type="text" size="8" name="ACPn6"></td>
+                        <td><input type="text" size="8" name="ACPs6"></td>
+                        <td><input type="text" size="8" name="ACo6"></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td><input type="date" name="ACt7"></td>
+                        <td><input type="text" size="8" name="ACF7"></td>
+                        <td><input type="text" size="8" name="ACPn7"></td>
+                        <td><input type="text" size="8" name="ACPs7"></td>
+                        <td><input type="text" size="8" name="ACo7"></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td><input type="date" name="ACt8"></td>
+                        <td><input type="text" size="8" name="ACF8"></td>
+                        <td><input type="text" size="8" name="ACPn8"></td>
+                        <td><input type="text" size="8" name="ACPs8"></td>
+                        <td><input type="text" size="8" name="ACo8"></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td><input type="date" name="ACt9"></td>
+                        <td><input type="text" size="8" name="ACF9"></td>
+                        <td><input type="text" size="8" name="ACPn9"></td>
+                        <td><input type="text" size="8" name="ACPs9"></td>
+                        <td><input type="text" size="8" name="ACo9"></td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td><input type="date" name="ACt0"></td>
+                        <td><input type="text" size="8" name="ACF0"></td>
+                        <td><input type="text" size="8" name="ACPn0"></td>
+                        <td><input type="text" size="8" name="ACPs0"></td>
+                        <td><input type="text" size="8" name="ACo0"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!--PET-->
+                  <div id="Div5" style="display:none;">
+                    <table align="center" style="width:100%; text-align:center;" cellpadding="10" border="1">
+                      <tr>
+                        <th width="35px">次數</th>
+                        <th>Time</th>
+                        <th>Fundings</th>
+                        <th>Other</th>
+                      </tr>
+                     <tr>
+                        <td>1</td>
+                        <td><input type="date" name="PETt1"></td>
+                        <td><input type="text" size="8" name="PETf1"></td>
+                        <td><input type="text" size="8" name="PETo1"></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><input type="date" name="PETt2"></td>
+                        <td><input type="text" size="8" name="PETf2"></td>
+                        <td><input type="text" size="8" name="PETo2"></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><input type="date" name="PETt3"></td>
+                        <td><input type="text" size="8" name="PETf3"></td>
+                        <td><input type="text" size="8" name="PETo3"></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><input type="date" name="PETt4"></td>
+                        <td><input type="text" size="8" name="PETf4"></td>
+                        <td><input type="text" size="8" name="PETo4"></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td><input type="date" name="PETt5"></td>
+                        <td><input type="text" size="8" name="PETf5"></td>
+                        <td><input type="text" size="8" name="PETo5"></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td><input type="date" name="PETt6"></td>
+                        <td><input type="text" size="8" name="PETf6"></td>
+                        <td><input type="text" size="8" name="PETo6"></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td><input type="date" name="PETt7"></td>
+                        <td><input type="text" size="8" name="PETf7"></td>
+                        <td><input type="text" size="8" name="PETo7"></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td><input type="date" name="PETt8"></td>
+                        <td><input type="text" size="8" name="PETf8"></td>
+                        <td><input type="text" size="8" name="PETo8"></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td><input type="date" name="PETt9"></td>
+                        <td><input type="text" size="8" name="PETf9"></td>
+                        <td><input type="text" size="8" name="PETo9"></td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td><input type="date" name="PETt0"></td>
+                        <td><input type="text" size="8" name="PETf0"></td>
+                        <td><input type="text" size="8" name="PETo0"></td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="10" ><!--新增紀錄 -->
+          <div style="float:left;">
+            <input type="submit" value="儲存紀錄" align="center">
+          </div>
+          
+          <div style="float:right;">
+            <input type="reset" value="重製紀錄" align="right">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+  </body>
+</html>

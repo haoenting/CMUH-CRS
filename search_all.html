@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset = "UTF-8"></meta>
+    <title>CMUH CRS Cancer Database</title>
+  </head>
+  
+  <body bgcolor="#C4C4C4">
+    <h1 align="center"> CMUH CRS Cancer Database</h1>
+    <hr/>
+    <form method="post" align="center" onclick="">
+      <a>按照
+      <select name="sorting">
+        <option value="Chart">病歷號</option>
+        <option value="ID">身分證</option>
+        <option value="Name">姓名</option>
+        <option value="Time">編輯時間</option>
+      </select>
+        <a>排序
+      <input type="submit" value="查詢">
+    </form>
+    
+    <iframe src="search_all.php" width="100%" height="650" frameborder="0"></iframe>
+  </body>
+</html>
